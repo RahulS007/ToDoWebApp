@@ -1,22 +1,18 @@
-import React, {useState} from 'react'
+import React, { Component } from 'react';
+import TodoItem from './TodoItem'
+import PropTypes from 'prop-types';
 
-const Todos = (props) => {
+class Todos extends Component {
+    render() {
+    return (
+        this.props.todos.map(todo => <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete} delTodo={this.props.delTodo} />)
+    )
+  }
+}
 
-  return (
-    <div>
-            <div id="container">
-            <h1 id = "driver"><span><i class="fa fa-plus"></i></span>Todo list</h1>
-            <input id = "text-box" type="text" placeholder="Add New" hidden></input>
-            <ul>
-                {props.todolist.map((todo) => (
-                    <li>{todo.title}</li>
-                ))}
-            </ul>
-            </div>
+// PropTypes
+Todos.propTypes = {
+    todos: PropTypes.array.isRequired
+}
 
-        
-    </div>
-  )
-};
-
-export default Todos
+export default Todos;
