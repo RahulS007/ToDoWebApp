@@ -1,11 +1,12 @@
 import './App.css';
 import React, {Component} from 'react';
+import Todos from './components/todos';
 
     class App extends Component {
 
       state = {
         filterText: '',
-        videos: []
+        todolist: []
       }
 
       componentDidMount() {
@@ -27,16 +28,8 @@ import React, {Component} from 'react';
       render () {
          return (
            <>
-          <div id="container">
-            <h1 id = "driver"><span><i class="fa fa-plus"></i></span>Todo list</h1>
-            <input id = "text-box" type="text" placeholder="Add New" hidden></input>
-            <ul>
-              <li>Suit Up</li>
-              <li>Fire Up the batMobile</li>
-              <li>Save Gotham</li>
-              <li>Repeat</li>
-            </ul>
-          </div>
+           <Todos todolist={this.state.todolist} />
+          
           </>
         )
 
